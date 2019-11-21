@@ -28,7 +28,7 @@ const App = () => (
         <Route path="/articles" component={ ArticlesListPage } />
         <Route path="/article/:name" component={ ArticlePage } />
 
-        // displays '404: not found' for all other urls
+        {/* displays '404: not found' for all other urls */}
         <Route component={ NotFoundPage }/>
       </Switch>
 
