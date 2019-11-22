@@ -2,7 +2,7 @@ import React from 'react';
 
 import ArticlesList from '../components/ArticlesList';
 
-import articleContent from './article-content';
+import articleContent from '../data/article-content';
 
 const ArticlesListPage = () => (
   <>

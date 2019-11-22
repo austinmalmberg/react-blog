@@ -2,7 +2,7 @@ import React from 'react';
 
 const HomePage = () => (
   <>
-    <h1>Hello, welcome to my blog!</h1>
+    <h1>The Weekend Camper</h1>
     <p>culpa fugiat quorum veniam malis tempor illum anim quae quis fore irure dolor
     anim minim culpa labore elit quis summis eram minim magna irure quorum noster
     culpa ipsum quorum aliqua magna labore aliqua dolor duis malis aute quem nisi

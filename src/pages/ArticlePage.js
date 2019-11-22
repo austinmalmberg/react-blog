@@ -1,27 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-import ArticlesList from '../components/ArticlesList';
-import NotFoundPage from '../components/NotFoundPage';
+import UpvotesSection from '../components/UpvotesSection';
+import CommentsSection from '../components/CommentsSection';
+import OtherArticlesList from '../components/OtherArticlesList';
 
-import articleContent from './article-content';
+import NotFoundPage from './NotFoundPage';
+
+import articleContent from '../data/article-content';
 
 const ArticlePage = ({ match }) => {
 
   const name = match.params.name;
   const article = articleContent.find(article => article.name === name);
 
-  if (!article) return <NotFoundPage />;
+  const [ articleInfo, setArticleInfo ] = useState({ upvotes: 0, comments: [] });
 
-  const otherArticles = articleContent.filter(article => article.name !== name);
+  useEffect(() => {
+    fetch(`/api/articles/${name}`)
+      .then(result => result.json())
+      .then(setArticleInfo);
+  }, [name]);
+
+  if (!article) return <NotFoundPage />;
 
   return (
     <>
-      <h1>{ article.title }</h1>
-      { article.content.map((paragraph, key) => (
-        <p key={ key }>{ paragraph }</p>
-      ))}
-      <h3 className="mt-5">Other Articles</h3>
-      <ArticlesList className="mt-4" articles={ otherArticles } />
+      <article>
+        <h1>{ article.title }</h1>
+        { article.content.map((paragraph, key) => (
+          <p key={ key }>{ paragraph }</p>
+        ))}
+        <UpvotesSection articleName={ article.name } upvotes={ articleInfo.upvotes } setArticleInfo={ setArticleInfo } />
+        <CommentsSection articleName={ article.name } comments={ articleInfo.comments } setArticleInfo={ setArticleInfo } />
+      </article>
+      <OtherArticlesList articleName={ article.name } />
     </>
   );
 };

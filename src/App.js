@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // GLOBAL COMPONENTS
-import NavBar from './nav/NavBar';
+import NavBar from './components/nav/NavBar';
 
 // PAGES
 import HomePage from './pages/HomePage';
@@ -12,7 +12,7 @@ import ArticlesListPage from './pages/ArticlesListPage';
 import ArticlePage from './pages/ArticlePage';
 
 // landing page for non-specified urls
-import NotFoundPage from './components/NotFoundPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 
 const App = () => (
