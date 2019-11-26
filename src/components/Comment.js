@@ -1,5 +1,7 @@
 import React from 'react';
 
+import formatDate from '../helpers/formatDate';
+
 const Comment = ({ username, text, datetime, bglight }) => {
 
   datetime = formatDate(datetime);
@@ -12,22 +14,5 @@ const Comment = ({ username, text, datetime, bglight }) => {
     </div>
   );
 };
-
-
-function formatDate(datetime) {
-
-  const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-  if (!datetime)
-    return datetime;
-
-  const date = new Date(datetime);
-
-  const [ hour, minute, half ] = [ date.getHours() % 12, date.getMinutes(), date.getHours() < 12 ? 'AM' : 'PM'];
-  const [ month, day, year ] = [ monthNames[date.getMonth()], date.getDate(), date.getFullYear() ]
-
-  return `${month} ${day}, ${year} at ${hour}:${minute} ${half}`;
-
-}
 
 export default Comment;

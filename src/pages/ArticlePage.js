@@ -6,6 +6,8 @@ import OtherArticlesList from '../components/OtherArticlesList';
 
 import NotFoundPage from './NotFoundPage';
 
+import formatDate from '../helpers/formatDate';
+
 const ArticlePage = ({ match }) => {
 
   const name = match.params.name;
@@ -24,6 +26,7 @@ const ArticlePage = ({ match }) => {
     <>
       <article>
         <h1>{ article.title }</h1>
+        <p>{ formatDate(article.created) }</p>
         { article.content.map((paragraph, key) => (
           <p key={ key }>{ paragraph }</p>
         ))}

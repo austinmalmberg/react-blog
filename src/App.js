@@ -10,6 +10,7 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ArticlesListPage from './pages/ArticlesListPage';
 import ArticlePage from './pages/ArticlePage';
+import NewArticlePage from './pages/NewArticlePage';
 
 // landing page for non-specified urls
 import NotFoundPage from './pages/NotFoundPage';
@@ -26,7 +27,7 @@ const App = () => (
         <Route exact path="/" component={ HomePage } />
         <Route path="/about" component={ AboutPage } />
         <Route exact path="/articles" component={ ArticlesListPage } />
-        <Route exact path="/article/new" component={ ArticlesListPage } />
+        <Route exact path="/article/new" component={ NewArticlePage } />
         <Route path="/article/:name" component={ ArticlePage } />
 
         {/* displays '404: not found' for all other urls */}

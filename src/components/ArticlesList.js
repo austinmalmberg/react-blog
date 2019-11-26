@@ -5,7 +5,7 @@ const ArticlesList = ({ articles }) => {
 
   if (articles.length === 0) {
     return (
-      <p>Please wait...</p>
+      <p className="my-3">Please wait...</p>
     );
   }
 
