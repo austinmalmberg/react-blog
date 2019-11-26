@@ -22,22 +22,20 @@ const AddCommentForm = ({ articleName, setArticleInfo }) => {
   };
 
   return (
-    <>
-      <div id="comment-form" className="my-3">
-        <h5>Add Comment</h5>
-        <Form>
-          <Form.Group controlId="formName">
-            <Form.Label>Name</Form.Label>
-            <Form.Control value={ username } onChange={ (event) => setUsername(event.target.value) } />
-          </Form.Group>
-          <Form.Group controlId="formComment">
-            <Form.Label>Enter Text</Form.Label>
-            <Form.Control as="textarea" rows="3" value={ commentText } onChange={ (event) => setCommentText(event.target.value) } />
-          </Form.Group>
-          <Button variant="primary" type="submit" onClick={ addComment }>Submit</Button>
-        </Form>
-      </div>
-    </>
+    <div id="comment-form" className="my-3">
+      <h5>Add Comment</h5>
+      <Form>
+        <Form.Group controlId="formName">
+          <Form.Label>Name</Form.Label>
+          <Form.Control value={ username } onChange={ (event) => setUsername(event.target.value) } />
+        </Form.Group>
+        <Form.Group controlId="formComment">
+          <Form.Label>Enter Text</Form.Label>
+          <Form.Control as="textarea" rows="3" value={ commentText } onChange={ (event) => setCommentText(event.target.value) } />
+        </Form.Group>
+        <Button variant="primary" type="submit" onClick={ addComment }>Submit</Button>
+      </Form>
+    </div>
   );
 }
 

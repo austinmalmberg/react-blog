@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Comment from './Comment';
+
 const CommentsList = ({ comments }) => {
 
   if (comments.length === 0) {
@@ -11,16 +13,17 @@ const CommentsList = ({ comments }) => {
   }
 
   return (
-    <>
-      <div id="other-comments" className="my-3">
-        { comments.map((comment, key) => (
-          <div className={"comment px-3 py-2" + (key % 2 === 0 ? " bg-light": "")} key={ key }>
-            <h5>{ comment.username }</h5>
-            <p>{ comment.text }</p>
-          </div>
-        ))}
-      </div>
-    </>
+    <div id="other-comments" className="my-3">
+      { comments.map((comment, key) => (
+        <Comment
+          key={ key }
+          username={ comment.username }
+          text={ comment.text }
+          datetime={ comment.datetime }
+          bglight={ key % 2 === 0 }
+          />
+      ))}
+    </div>
   );
 };
 

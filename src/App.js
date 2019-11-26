@@ -25,7 +25,8 @@ const App = () => (
 
         <Route exact path="/" component={ HomePage } />
         <Route path="/about" component={ AboutPage } />
-        <Route path="/articles" component={ ArticlesListPage } />
+        <Route exact path="/articles" component={ ArticlesListPage } />
+        <Route exact path="/article/new" component={ ArticlesListPage } />
         <Route path="/article/:name" component={ ArticlePage } />
 
         {/* displays '404: not found' for all other urls */}

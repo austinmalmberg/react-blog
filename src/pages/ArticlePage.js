@@ -6,19 +6,16 @@ import OtherArticlesList from '../components/OtherArticlesList';
 
 import NotFoundPage from './NotFoundPage';
 
-import articleContent from '../data/article-content';
-
 const ArticlePage = ({ match }) => {
 
   const name = match.params.name;
-  const article = articleContent.find(article => article.name === name);
 
-  const [ articleInfo, setArticleInfo ] = useState({ upvotes: 0, comments: [] });
+  const [ article, setArticle ] = useState({ name: '', title: '', content: [], upvotes: 0, comments: [] });
 
   useEffect(() => {
     fetch(`/api/articles/${name}`)
       .then(result => result.json())
-      .then(setArticleInfo);
+      .then(setArticle);
   }, [name]);
 
   if (!article) return <NotFoundPage />;
@@ -30,8 +27,8 @@ const ArticlePage = ({ match }) => {
         { article.content.map((paragraph, key) => (
           <p key={ key }>{ paragraph }</p>
         ))}
-        <UpvotesSection articleName={ article.name } upvotes={ articleInfo.upvotes } setArticleInfo={ setArticleInfo } />
-        <CommentsSection articleName={ article.name } comments={ articleInfo.comments } setArticleInfo={ setArticleInfo } />
+        <UpvotesSection articleName={ article.name } upvotes={ article.upvotes }  setArticle={  setArticle } />
+        <CommentsSection articleName={ article.name } comments={ article.comments }  setArticle={  setArticle } />
       </article>
       <OtherArticlesList articleName={ article.name } />
     </>
