@@ -8,7 +8,7 @@ const AddCommentForm = ({ articleName, setArticle }) => {
 
   const addComment = () => {
     fetch(`/api/articles/${articleName}/add-comment`, {
-      method: 'POST',
+      method: 'PUT',
       body: JSON.stringify({ username, text: commentText }),
       headers: {
         'Content-Type': 'application/json'

@@ -8,7 +8,7 @@ const UpvotesSection = ({ articleName, upvotes,  setArticle }) => {
   const upvoteArticle = () => {
     setUpvoteDisabled(true);
 
-    fetch(`/api/articles/${articleName}/upvote`, { method: 'POST' })
+    fetch(`/api/articles/${articleName}/upvote`, { method: 'PUT' })
       .then(response => response.json())
       .then(json => {
         setArticle(json);
